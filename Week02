@@ -8,6 +8,6 @@ Goal: Set up four Linux hosts on one LAN and try out various ways of setting sta
 Step 1 – Create the GNS3 topology
 We have created a GNS3 project with 4 Linux hosts (Host1, Host2, Host3 and Host4) and one Ethernet Switch (Switch1). The links were added after the nodes were placed around the switch. This satisfies the tutorial requirement of having a LAN with four Linux hosts and one switch.
 
-![GitHub Screenshot Demo](Images/2.1.png)
+![GitHub Screenshot Demo](./Images/2.1.png)
 12320906-COIT20261/Images/2.1.png
 

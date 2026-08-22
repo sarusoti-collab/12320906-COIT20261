@@ -47,21 +47,28 @@ Aim: Capture traffic on the Host1-to-switch link and transfer the resulting PCAP
 
 ## Step 6 – Start packet capture on the Host1 link
 
+On the Ethernet connection between Host1 and Switch1, packet capture was initiated. The packet-capture dialogue of GNS3 was utilised with an Ethernet connectivity. This creates a PCAP capture file with the frames that traverse the chosen link.
+
 ![Netcat](./Images/3.7.png)
 _Figure 6. start packet capture on the host1 link._
 
 ## Step 7 – Name the packet capture
 
+`Capture-Basics-<12320906>-ping-netcat.pcap` was supplied as the capture filename. In order to identify the capture as comprising both ping and Netcat traffic, the tutorial requires a filename based on `Capture-Basics-<studentid>-ping-netcat.pcap`.
 
 ![Netcat](./Images/3.9.png)
 _Figure 9. name the packet capture._
 
 ## Step 8 – Generate three ping requests during capture
 
+Host1 executed `ping -c 3 10.1.0.2` while capture was in progress. The operation was restricted to three ICMP Echo Requests by the `-c 3` option. ICMP traffic was generated for the capture file after all three responses were received with 0% packet loss.
 
-![Netcat](./Images/3.10.png)
+![Netcat](./Images/3.10.png) 
 _Figure 10. generate three ping requests during capture._
+
 ## Step 9 – Generate Netcat traffic during capture
+
+During the packet capture process, Netcat was also utilised. The screenshots display Netcat connection with the text `Saru` and 10.1.0.1 on port 12345.As needed by the packet-capture activity, this produced application traffic in addition to the ICMP ping packets.
 
 
 ![Netcat](./Images/3.11.png)
@@ -69,7 +76,10 @@ _Figure 11. generate netcat traffic during capture._
 
 ## Step 10 – Transfer and verify the PCAP file
 
+The PCAP file was moved from the GNS3 server to the Windows host after the capture was halted. The capture opened in Wireshark is seen in the last screenshot. ARP traffic and ICMP Echo request/reply packets between 10.1.0.1 and 10.1.0.2 are included in the packet list. This confirms that the PCAP file was accessible after transmission and that packets were correctly collected.
 
 ![Netcat](./Images/3.12.png)
 _Figure 10. transfer and verify the pcap file._
 
+# Conclusion
+Successful Linux host connectivity, basic Netcat client/server messaging, packet capture over a GNS3 Ethernet link, and the transmission and validation of the resultant PCAP file were all shown in the third week's practical. The sample includes network activity, including ARP and ICMP ping packets, according to the Wireshark evidence

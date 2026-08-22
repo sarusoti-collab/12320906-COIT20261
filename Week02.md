@@ -11,5 +11,5 @@ We have created a GNS3 project with 4 Linux hosts (Host1, Host2, Host3 and Host4
 The links were added after the nodes were placed around the switch. This satisfies the tutorial requirement of having a LAN with four Linux hosts and one switch.
 
 
-![GNS3 topology](../Images/2.1.png)
+![GNS3 topology](./Images/2.1.png)
 

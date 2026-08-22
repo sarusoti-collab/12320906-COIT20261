@@ -63,7 +63,7 @@ _Figure 9. name the packet capture._
 
 Host1 executed `ping -c 3 10.1.0.2` while capture was in progress. The operation was restricted to three ICMP Echo Requests by the `-c 3` option. ICMP traffic was generated for the capture file after all three responses were received with 0% packet loss.
 
-![Netcat](./Images/3.11.png)
+![Netcat](./Images/3.10.png)
 _Figure 10. generate three ping requests during capture._
 
 ## Step 9 – Generate Netcat traffic during capture

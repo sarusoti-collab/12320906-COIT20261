@@ -49,21 +49,21 @@ Aim: Capture traffic on the Host1-to-switch link and transfer the resulting PCAP
 
 On the Ethernet connection between Host1 and Switch1, packet capture was initiated. The packet-capture dialogue of GNS3 was utilised with an Ethernet connectivity. This creates a PCAP capture file with the frames that traverse the chosen link.
 
-![Netcat](./Images/3.7.png)
+![Netcat](./Images/3.8.png)
 _Figure 6. start packet capture on the host1 link._
 
 ## Step 7 – Name the packet capture
 
 `Capture-Basics-<12320906>-ping-netcat.pcap` was supplied as the capture filename. In order to identify the capture as comprising both ping and Netcat traffic, the tutorial requires a filename based on `Capture-Basics-<studentid>-ping-netcat.pcap`.
 
-![Netcat](./Images/3.7.png)
+![Netcat](./Images/3.9.png)
 _Figure 9. name the packet capture._
 
 ## Step 8 – Generate three ping requests during capture
 
 Host1 executed `ping -c 3 10.1.0.2` while capture was in progress. The operation was restricted to three ICMP Echo Requests by the `-c 3` option. ICMP traffic was generated for the capture file after all three responses were received with 0% packet loss.
 
-![Netcat](./Images/3.10.png) 
+![Netcat](./Images/3.7.png)
 _Figure 10. generate three ping requests during capture._
 
 ## Step 9 – Generate Netcat traffic during capture

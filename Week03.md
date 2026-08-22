@@ -16,18 +16,21 @@ _Figure 1. prepare the lan topology_
 Host1 was verified with `ip a` prior to utilising Netcat, revealing address 10.1.0.1/24 on eth0. Then, using three requests for each location, Host 1 was able to successfully ping 10.1.0.2, 10.1.0.3, and 10.1.0.4. Prior to application-level testing, each test confirmed that the hosts could be reached by returning 3 sent, 3 received, and 0% packet loss.
 
 ![Netcat](./Images/3.2.png)
+
 _Figure 2. verify ip connectivity._
 
 ## Step 3 – Start a Netcat listening server
 `nc -l -p 12345` was used to create a Netcat listener. The `-p` option indicates the local port, while the `-l` option puts Netcat in listen mode. The provided proof demonstrates that a remote Netcat client's text is accepted by the listener.
 
-![Netcat](./Images/3.3.png)
+![Netcat](./Images/3.5.png) 
+
 _Figure 3. start a netcat listening server._
 
 ## Step 4 – Connect a Netcat client to the server
 Targeting Host1 at IP address 10.1.0.1 and TCP port 12345, the Netcat client was launched on a different host with the command `nc 10.1.0.1 12345`. The screenshots, which include the student ID and name/message content, demonstrate effective two-way text conversation. This demonstrates application-level communication between the two Linux hosts.
 
-![Netcat](./Images/3.4.png)
+![Netcat](./Images/3.6.png) 
+
 _Figure 4. connect a netcat client to the server_
 
 

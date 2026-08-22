@@ -29,7 +29,7 @@ _Figure 3. start a netcat listening server._
 ## Step 4 – Connect a Netcat client to the server
 Targeting Host1 at IP address 10.1.0.1 and TCP port 12345, the Netcat client was launched on a different host with the command `nc 10.1.0.1 12345`. The screenshots, which include the student ID and name/message content, demonstrate effective two-way text conversation. This demonstrates application-level communication between the two Linux hosts.
 
-![Netcat](./Images/3.6.png) 
+![Netcat](./Images/3.5.png) 
 
 _Figure 4. connect a netcat client to the server_
 

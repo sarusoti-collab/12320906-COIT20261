@@ -56,7 +56,7 @@ _Figure 6. start packet capture on the host1 link._
 
 `Capture-Basics-<12320906>-ping-netcat.pcap` was supplied as the capture filename. In order to identify the capture as comprising both ping and Netcat traffic, the tutorial requires a filename based on `Capture-Basics-<studentid>-ping-netcat.pcap`.
 
-![Netcat](./Images/3.9.png)
+![Netcat](./Images/3.7.png)
 _Figure 9. name the packet capture._
 
 ## Step 8 – Generate three ping requests during capture

@@ -36,7 +36,7 @@ _Figure 4. connect a netcat client to the server_
 ## Step 5 – Confirm two-way Netcat messaging
 Further Netcat data reveals a client session displaying the same ID along with the text `ellen` and a listener getting student ID 12318349. This verifies that text submitted on one endpoint was sent to the other endpoint when combined with the other Netcat images.
 
-![Netcat](./Images/3.7.png) 
+![Netcat](./Images/3.11.png) 
 _Figure 5. confirm two-way netcat messaging._
 
 

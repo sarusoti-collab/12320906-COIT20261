@@ -34,9 +34,29 @@ _Figure 3. verify an assigned address with ip address show._
 We opened the GNS3 network configuration editor for Host1. The eth0 part is static, and has the fields `address`, `netmask` and optionally `gateway`. This technique modifies the Linux /etc/network/interfaces configuration from the GNS3 graphical interface. Settings entered here are applied when starting the node.
 
 ![GNS3 topology](./Images/2.4.png)
+_Figure 4. configure a host using the gns3 configure menu._
 
 ## Step 5 – Edit /etc/network/interfaces in the console
 nano /etc/network/interfaces Now I opened the file in nano. The static configuration has `auto eth0`, `iface eth0 inet static`, an IPv4 address and netmask 255.255.255.0. This demonstrates the second method of the tutorial, editing the Linux network configuration file directly from the console.
 
 ![GNS3 topology](./Images/2.5.png)
+_Figure 5. edit /etc/network/interfaces from the console._
 
+
+## Step 6 – Change the static address in nano
+In nano, the static address was changed to 10.1.1.3 netmask 255.255.255.0. The configuration also includes a gateway line. If you edit this file on a live node you will need to reload the interface configuration for the new settings to take effect.
+
+![GNS3 topology](./Images/2.6.png)
+_Figure 6. change the static address in nano._
+
+## Step 7 – Reload the interface and verify Host3
+On Host3, the network configuration was edited and then ifdown eth0 and ifup eth0 were executed. These commands reload /etc/network/interfaces. The tutorial explains: Next run `ip a`. You should see eth0 is 10.1.1.3/24 which means the config took.
+
+![GNS3 topology](./Images/2.7.png)
+_Figure 7. reload the interface and verify host3._
+
+## Step 8 – Assign an address immediately with the ip command
+On Host4, the command ip addr add 10.1.1.4/24 dev eth0 was used. Then, running ip a shows eth0 has 10.1.1.4/24. This is the 3rd way to address in the tutorial. It takes effect immediately, but the change is not persistent after reboot unlike `/etc/network/interfaces`.
+
+![GNS3 topology](./Images/2.8.png)
+Figure 8. assign an address immediately with the ip command.

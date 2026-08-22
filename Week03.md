@@ -33,6 +33,43 @@ Targeting Host1 at IP address 10.1.0.1 and TCP port 12345, the Netcat client was
 
 _Figure 4. connect a netcat client to the server_
 
+## Step 5 – Confirm two-way Netcat messaging
+Further Netcat data reveals a client session displaying the same ID along with the text `ellen` and a listener getting student ID 12318349. This verifies that text submitted on one endpoint was sent to the other endpoint when combined with the other Netcat images.
+
+![Netcat](./Images/3.6.png) 
+_Figure 5. confirm two-way netcat messaging._
 
 
+The provided Week 03 instruction requests a server port different than 12345 and a single screenshot that displays both the client and the server. The screenshots that are currently available demonstrate Netcat operating successfully with distinct console views and port 12345. Instead of claiming a different port or a merged screenshot, this report details the work precisely as it appears in the provided proof.
+
+# Task 2: Capturing Packets
+Aim: Capture traffic on the Host1-to-switch link and transfer the resulting PCAP file to the Windows host.
+
+## Step 6 – Start packet capture on the Host1 link
+
+![Netcat](./Images/3.7.png)
+_Figure 6. start packet capture on the host1 link._
+
+## Step 7 – Name the packet capture
+
+
+![Netcat](./Images/3.9.png)
+_Figure 9. name the packet capture._
+
+## Step 8 – Generate three ping requests during capture
+
+
+![Netcat](./Images/3.10.png)
+_Figure 10. generate three ping requests during capture._
+## Step 9 – Generate Netcat traffic during capture
+
+
+![Netcat](./Images/3.11.png)
+_Figure 11. generate netcat traffic during capture._
+
+## Step 10 – Transfer and verify the PCAP file
+
+
+![Netcat](./Images/3.12.png)
+_Figure 10. transfer and verify the pcap file._
 

@@ -1,1 +1,11 @@
+##Week 02 Tutorial
 
+This report is a documentation of practical work done for Week 02 tutorial in GNS3. This tutorial covers three methods for assigning static IPv4 addresses to Linux hosts, verifying interface addressing and using ping to test connectivity and round trip time (RTT).
+
+#Task 1: Setting Static IP Addresses
+Goal: Set up four Linux hosts on one LAN and try out various ways of setting static IP addresses.
+
+Step 1 – Create the GNS3 topology
+We have created a GNS3 project with 4 Linux hosts (Host1, Host2, Host3 and Host4) and one Ethernet Switch (Switch1). The links were added after the nodes were placed around the switch. This satisfies the tutorial requirement of having a LAN with four Linux hosts and one switch.
+
+![GitHub Screenshot Demo](./images/2.1.png)

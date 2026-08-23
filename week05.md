@@ -79,9 +79,13 @@ A summary containing Destination and Next Node columns for every router is requi
 
 
 Router	|   Destination	Next Node
+
 FRR1	  | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+
 FRR2	  | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+
 FRR3    | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+
 FRR4	  | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
 
 

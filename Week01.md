@@ -45,7 +45,7 @@ A single Linux Host node named **Host1** was added to the GNS3 workspace.
 
 The following screenshot shows the Linux Host that was created in GNS3.
 
-![GNS3 Linux Host](./Images/Screenshot%202026-07-22%20144543.png)
+![GNS3 Linux Host](./Images/Screenshot%202026-07-22%20144543.png) 
 
 **Observation:**  
 This activity introduced me to the GNS3 workspace and showed me how network

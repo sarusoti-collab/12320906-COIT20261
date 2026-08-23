@@ -83,7 +83,7 @@ A single Linux Host named **Host1** was added to the GNS3 workspace.
 
 The following screenshot shows Host1 added to the project.
 
-![Linux Host Added to GNS3](./Images/Screenshot%202026-07-22%20144543.png)
+![Linux Host Added to GNS3](./Images/Screenshot%2026-07-22%144543)
 
 This was my first basic GNS3 topology for this unit.
 

@@ -55,7 +55,7 @@ Attach/upload the exported GNS3 project file separately in the submission area.
 
 ## 2.1 OSPF Network
 
-![Routing](./Images/5.3.png)
+![Routing](./Images/5.9.png)
 _Figure 6. OSPF topology containing Host1, Host2, FRR1–FRR4 and the NETem links._
 
 
@@ -63,7 +63,7 @@ _Figure 6. OSPF topology containing Host1, Host2, FRR1–FRR4 and the NETem link
 ## 2.2 FRR1 Neighbours and Routing Information
 
 
-![Routing](./Images/5.3.png)
+![Routing](./Images/5.8.png)
 _Figure 7. FRR1 OSPF neighbour and routing information, including 'show ip ospf neighbor', 'show ip ospf route' and 'show ip route'._
 
 
@@ -72,7 +72,7 @@ _Figure 7. FRR1 OSPF neighbour and routing information, including 'show ip ospf 
 
 
 
-![Routing](./Images/5.3.png)
+![Routing](./Images/5.8.png)
 _Figure 8. Routing table evidence for FRR1._
 
 
@@ -86,16 +86,6 @@ _Figure 9. Routing information for FRR2, including OSPF-learned and directly con
 
 
 ## 2.4 Summary Routing Table
-
-
-
-
-Router	Destination	Next Node
-FRR1	[Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
-FRR2	[Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
-FRR3	[Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
-FRR4	[Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
-
 
 
 

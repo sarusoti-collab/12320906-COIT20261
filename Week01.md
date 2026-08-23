@@ -5,21 +5,55 @@
 
 ---
 
-## Section A – Unit and Software Setup
+# Section A – Unit and Software Setup
 
-In Week 01, I became familiar with the requirements of COIT20261 Network
-Services and Automation and the software that will be used throughout the
-unit.
+## 1. Understanding the Unit
 
-The main software and platforms used for the practical activities are:
+In Week 01, I reviewed the COIT20261 Network Services and Automation unit and became familiar with the practical activities, portfolio requirements and assessment tasks.
 
-- GNS3 for creating and testing network topologies
-- VirtualBox for virtualisation
-- GitHub for maintaining the weekly portfolio and practical evidence
-- Markdown for documenting practical activities
+The weekly practical work will be documented in GitHub as part of my portfolio.
 
-I also created my GitHub repository for storing the weekly tutorial work,
-screenshots and portfolio documentation.
+---
+
+## 2. Software Setup
+
+The main software required for the practical activities includes:
+
+- VirtualBox
+- GNS3
+- GitHub
+- Linux virtual hosts
+
+I checked the required networking environment and accessed the GNS3 server.
+
+The following screenshot shows the GNS3 server information.
+
+![GNS3 Server Setup](./Images/1.1.png)
+
+The GNS3 server was available using:
+
+    IP Address: 192.168.56.101
+    Port: 80
+
+The Web UI could therefore be accessed through the GNS3 server at this IP address.
+
+This confirmed that the GNS3 environment was available for performing the networking practical activities.
+
+---
+
+## 3. GitHub Repository
+
+A GitHub repository was prepared for COIT20261 to store my weekly tutorial work.
+
+The repository is used to maintain:
+
+- Weekly portfolio documentation
+- Practical screenshots
+- Network configuration evidence
+- Commands used during practical activities
+- Reflections and learning outcomes
+
+Markdown is used to organise and present the weekly portfolio work clearly.
 
 ---
 
@@ -27,145 +61,176 @@ screenshots and portfolio documentation.
 
 ## Aim
 
-The aim of this activity was to become familiar with the basic functions of
-GNS3.
+The aim of this activity was to become familiar with the basic functions of GNS3.
 
-The activity included creating a GNS3 project, adding a Linux Host,
-configuring an IPv4 address, starting the node, opening its console and
-checking the IP address from Linux.
+The activity involved:
+
+- Creating a GNS3 project
+- Adding a Linux Host
+- Configuring a static IPv4 address
+- Starting the Linux Host
+- Opening the Linux console
+- Checking the configured IP address
+- Becoming familiar with basic Linux networking commands
 
 ---
 
 ## Step 1 – Create the GNS3 Project
 
-I opened GNS3 and created a project for the introductory networking
-activity.
+I opened GNS3 and created a project for the introductory practical activity.
 
-A single Linux Host node named **Host1** was added to the GNS3 workspace.
+A single Linux Host named **Host1** was added to the GNS3 workspace.
 
-The following screenshot shows the Linux Host that was created in GNS3.
+The following screenshot shows Host1 added to the project.
 
-![GNS3 Linux Host](./Images/Screenshot%202026-07-22%20144543.png) 
+![Linux Host Added to GNS3](./Images/Screenshot%202026-07-22%20144543.png)
 
-**Observation:**  
-This activity introduced me to the GNS3 workspace and showed me how network
-devices can be added and positioned inside a project.
+This was my first basic GNS3 topology for this unit.
+
+The activity helped me understand how to add and position a network node inside the GNS3 workspace.
 
 ---
 
-## Step 2 – Configure the Linux Host
+## Step 2 – Configure a Static IPv4 Address
 
-The next part of the activity involved configuring a static IPv4 address
-for the Linux Host.
+The next step was to understand how a static IPv4 address can be configured on a Linux Host.
 
-The network configuration is performed on the `eth0` interface using the
-Linux network interfaces configuration.
+The Week 01 tutorial uses the Linux `/etc/network/interfaces` file for configuring the first Ethernet interface, `eth0`.
 
-The general configuration format used in the tutorial was:
+The general configuration is:
 
     auto eth0
     iface eth0 inet static
-        address <IP address>
-        netmask <network mask>
+        address <ipaddress>
+        netmask <networkmask>
 
-For this simple topology, a default gateway was not required because only
-one Linux Host was being configured.
+The actual IP address and network mask must replace the placeholder values.
 
-The tutorial also introduced the option of disabling IP forwarding on a
-normal Linux host using:
+For this simple activity, a default gateway was not required because the topology contained only a single Linux Host.
+
+---
+
+## Step 3 – IP Forwarding
+
+The tutorial also introduced IP forwarding.
+
+A normal Linux Host should operate as an end device rather than forwarding packets between different networks.
+
+IP forwarding can be disabled using:
 
     up sysctl net.ipv4.ip_forward=0
 
-This ensures that the Linux Host behaves as an end host rather than acting
-as a router.
+This sets IPv4 forwarding to `0` when the interface is brought up.
+
+This helped me understand one basic difference between a normal network host and a router.
 
 ---
 
-## Step 3 – Start the Linux Host
+## Step 4 – Start the Linux Host
 
-After configuring the interface, I started the Linux Host in GNS3.
+After completing the network configuration, the Linux Host can be started in GNS3.
 
-Starting the node allows the Linux operating system to load the network
-configuration assigned to the interface.
+The console can then be opened in a web browser to access the Linux command-line environment.
 
-I then opened the web console for the Linux Host.
+This allows networking commands to be executed directly on the Linux Host.
 
 ---
 
-## Step 4 – Check the IP Address
+## Step 5 – Check the IP Address
 
-The IP address of a Linux Host can be checked using:
+The configured IP address can be checked from the Linux console using:
 
     ip address show
 
-A shorter command that can also display interface information is:
+The shorter command:
 
     ip addr
 
-The output displays the available interfaces, including `lo` for the
-loopback interface and `eth0` for the Ethernet interface.
+can also be used to display the network interfaces and their addresses.
 
-The IPv4 address assigned to `eth0` can then be identified from the
-`inet` entry.
+The command output normally displays interfaces such as:
 
-### Supporting Evidence from Later Practical Work
+    lo
 
-The original Week 01 console screenshot was not retained. However, the
-following evidence from later practical work demonstrates the same Linux
-`ip addr` command and interface verification procedure introduced during
-Week 01.
+and:
 
-![Linux Host IP Address Verification](./Images/Screenshot%202026-08-19%20133149.png)
+    eth0
 
-The screenshot demonstrates the use of the Linux console to inspect the
-network interface and confirm the IPv4 address assigned to `eth0`.
+The `lo` interface represents the loopback interface, while `eth0` is the Ethernet interface used by the Linux Host.
+
+The configured IPv4 address can be identified from the `inet` entry associated with `eth0`.
 
 ---
 
-## Commands Practised
+## Commands Used / Learned
 
-The main Linux networking command practised in this activity was:
+The main networking commands and configuration introduced during this tutorial were:
 
     ip address show
 
-or:
+and:
 
     ip addr
 
-This command is useful for checking the IP addresses and current state of
-network interfaces.
+These commands are useful for checking network interface information and verifying the IPv4 address assigned to a Linux device.
+
+The tutorial also introduced:
+
+    up sysctl net.ipv4.ip_forward=0
+
+which can be used to disable IPv4 packet forwarding on the Linux Host.
 
 ---
 
-## What I Learned
+# Week 01 Outputs
 
-From this tutorial, I learned the basic process of creating and working with
-a GNS3 project.
+The Week 01 tutorial introduced the following expected practical outputs:
+
+1. A GNS3 project containing a Linux Host
+2. A screenshot of the GNS3 network
+3. A console check of the configured IP address
+4. An exported GNS3 project
+5. Portfolio documentation stored in GitHub
+
+The screenshots available in my portfolio document the GNS3 environment and the Linux Host created during the introductory activity.
+
+---
+
+# What I Learned
+
+During Week 01, I became familiar with the basic GNS3 environment and the way practical work will be documented throughout COIT20261.
 
 I learned how to:
 
-1. Create a project in GNS3.
-2. Add a Linux Host to the GNS3 workspace.
-3. Configure a static IPv4 address on the `eth0` interface.
-4. Start and stop a node.
-5. Open the Linux console.
-6. Use `ip address show` or `ip addr` to inspect network interfaces.
-7. Record practical work and screenshots in GitHub using Markdown.
+- Access the GNS3 server
+- Create a basic GNS3 project
+- Add a Linux Host to a project
+- Understand static IPv4 configuration
+- Identify the `eth0` network interface
+- Start a Linux node
+- Access the Linux console
+- Check network interface information using `ip address show`
+- Understand the purpose of disabling IP forwarding on a normal host
+- Use GitHub and Markdown to document practical work
 
-This introductory activity helped me understand the basic GNS3 environment
-before working with larger network topologies in later tutorials.
+The activity also helped me understand the basic workflow that will be used in later tutorials when more hosts, switches, routers and networks are introduced.
 
 ---
 
-## Conclusion
+# Reflection
 
-Week 01 provided an introduction to GNS3, Linux network configuration and
-GitHub portfolio documentation.
+Week 01 was an introductory practical that helped me become familiar with GNS3, Linux networking and GitHub portfolio documentation.
 
-The practical activity demonstrated how a Linux Host can be created in
-GNS3, configured with a static IPv4 address and checked using Linux
-networking commands.
+The most important part for me was understanding how GNS3 represents network devices and how Linux network interfaces can be configured and checked from the console.
 
-The knowledge gained from this introductory tutorial provides the
-foundation for later activities involving multiple hosts, switches,
-routers, routing and network services.
+Although this activity used only one Linux Host, it provided the basic knowledge required for the more complex network topologies used in later weeks.
+
+---
+
+# Conclusion
+
+The Week 01 tutorial provided an introduction to the software and networking tools used in COIT20261 Network Services and Automation.
+
+I became familiar with GNS3, added a Linux Host to a project and learned the basic process for configuring and checking an IPv4 address on a Linux network interface.
+
+These skills provide a foundation for the networking, routing and network services activities completed in the following tutorials.

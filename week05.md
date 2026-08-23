@@ -34,11 +34,7 @@ _Figure 5. Ping attempt from Host1 to 10.1.2.2. This screenshot records the test
 
 
 ## 1.4 Required Project File
-.......
-
-UPLOAD / INSERT HERE: View-Routes-12320906.gns3project
-Attach/upload the exported GNS3 project file separately in the submission area.
-
+[Required Project File](https://github.com/sarusoti-collab/12320906-COIT20261/blob/main/OSPF-Basics-Template.gns3project)
 
 ## 1.5 Additional Routing Tables Needed
 
@@ -110,7 +106,7 @@ _Figure 11. Traceroute comparison showing alternative paths to Host2._
 
 ## 2.6 Required OSPF Project File
 
-UPLOAD / INSERT HERE: OSPF-Basics-12320906.gns3project
+[OSPF Project File](https://github.com/sarusoti-collab/12320906-COIT20261/blob/main/OSPF-Basics-Template.gns3project)
 
 
 

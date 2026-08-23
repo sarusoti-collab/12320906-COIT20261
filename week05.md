@@ -78,15 +78,15 @@ _Figure 9. Routing information for FRR2, including OSPF-learned and directly con
 A summary containing Destination and Next Node columns for every router is required by the tutorial. Although the provided pictures offer compelling proof for FRR1 and FRR2, they do not include comprehensive, legible route tables for each destination for FRR3 and FRR4. For the final confirmed summary, the following space is set aside.
 
 
-Router	|   Destination	Next Node
+**Router	        |        Destination	Next Node**
 
-FRR1	  | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+FRR1	            |      [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
 
-FRR2	  | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+FRR2	            |      [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
 
-FRR3    | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+FRR3              |      [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
 
-FRR4	  | [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
+FRR4	            |      [Insert verified destination subnet(s)]	[Insert directly connected / next-hop router]
 
 
 ## 2.5 Traceroute Before and After Network Change

@@ -1,9 +1,9 @@
 # Week 04 Tutorial – HTTP Clients
 
 **Unit:** COIT20261 Network Services and Automation  
-**Student ID:** 12320906  
+**Student ID:** 12320906
 
-This report documents the practical work completed for the Week 04 tutorial. The tutorial explores HTTP communication using both a graphical web browser and command-line HTTP clients in a GNS3 network.
+This report documents the practical activities completed for the Week 04 tutorial. The tutorial focused on accessing an HTTP server using both a graphical HTTP client and command-line HTTP clients in a GNS3 network.
 
 ---
 
@@ -11,154 +11,161 @@ This report documents the practical work completed for the Week 04 tutorial. The
 
 ## Aim
 
-The aim of this task was to use a GUI web browser as an HTTP client to access a web server and explore HTTP communication across a routed network.
+The aim of this task was to use a GUI web browser as an HTTP client to access a website and explore HTTP communication across a routed network.
 
 ---
 
 ## Step 1 – Create the GNS3 Network
 
-A GNS3 network was created with three subnets connected through two routers.
+A GNS3 network was created using three subnets: A, B and C.
 
 The network contains:
 
-- Host1 – Firefox HTTP client
+- Host1 / Firefox Host
 - Switch1
 - Router1
 - Switch2
 - Router2
 - Switch3
-- Server1 – HTTP server
+- Server1 / Linux Server
 
-The three network segments are:
+Router1 connects subnet A and subnet B, while Router2 connects subnet B and subnet C.
 
-- Subnet A – Host1, Switch1 and Router1
-- Subnet B – Router1, Switch2 and Router2
-- Subnet C – Router2, Switch3 and Server1
+The network topology used for the practical is shown below.
 
-The completed GNS3 topology is shown below.
-
-![GNS3 Network Topology](./Images/Screenshot%202026-08-19%20132704.png)
+![GNS3 Network Topology](./Images/Screenshot%202026-08-12%20141335.png)
 
 ---
 
 ## Step 2 – Configure Router1
 
-Static IPv4 addresses were configured on Router1.
+Router1 was configured with static IPv4 addresses so that it could connect subnet A and subnet B.
 
-Router1 was configured with:
+The interface configuration was checked from the Router1 console.
 
-- eth0: `192.168.10.1/24`
-- eth1: `192.168.20.1/24`
+![Router1 Interface Configuration](./Images/Screenshot%202026-08-19%20132630.png)
 
-The configuration was checked using:
+The Router1 configuration was checked again after applying the required settings.
 
-`ip addr`
-
-![Router1 IP Configuration](./Images/Screenshot%202026-08-19%20133246%281%29.png)
-
-The routing table was then checked using:
-
-`ip route`
-
-The routing table confirmed that Router1 had routes to the directly connected networks.
-
-![Router1 Routing Table](./Images/Screenshot%202026-08-19%20133343%281%29.png)
+![Router1 Configuration Verification](./Images/Screenshot%202026-08-19%20132704.png)
 
 ---
 
-## Step 3 – Configure Router2
+## Step 3 – Check Router1 Routing Table
 
-Router2 was configured to connect subnet B and subnet C.
+The `ip route` command was used to check the routing information on Router1.
 
-The router configuration was checked using:
+![Router1 Routing Table](./Images/Screenshot%202026-08-19%20133149.png)
 
-`ip addr`
-
-and:
-
-`ip route`
-
-![Router2 IP Configuration](./Images/Screenshot%202026-08-19%20133358%281%29.png)
-
-Router2 connects the `192.168.20.0/24` and `192.168.30.0/24` networks.
+The routing table showed the networks directly connected to Router1.
 
 ---
 
-## Step 4 – Verify Routing
+## Step 4 – Configure Router2
 
-The routing tables were checked to make sure that the routers had the correct directly connected networks.
+Router2 was configured to provide connectivity between subnet B and subnet C.
 
-![Routing Table](./Images/Screenshot%202026-08-19%20133610%281%29.png)
+The Router2 routing information was checked using the `ip route` command.
 
-This helped verify that the interfaces and network routes were correctly configured.
+![Router2 Routing Table](./Images/Screenshot%202026-08-19%20133158.png)
 
----
+The interface configuration was then checked using `ip addr`.
 
-## Step 5 – Test Connectivity
+![Router2 Interface Configuration](./Images/Screenshot%202026-08-19%20133246.png)
 
-After configuring the routers, connectivity was tested using the `ping` command.
-
-A connectivity problem was initially observed.
-
-![Unsuccessful Ping Test](./Images/Screenshot%202026-08-19%20134503.png)
-
-The result showed:
-
-`Destination Host Unreachable`
-
-This indicated that the network configuration needed to be checked.
-
-After checking and correcting the configuration, another ping test was performed.
-
-![Successful Connectivity Test](./Images/Screenshot%202026-08-19%20133610%281%29.png)
-
-The successful test showed:
-
-- 5 packets transmitted
-- 5 packets received
-- 0% packet loss
-
-This confirmed successful communication between the routers.
+This verified the IPv4 addresses assigned to the Router2 interfaces.
 
 ---
 
-## Step 6 – Configure Host1
+## Step 5 – Check Host and Gateway Configuration
 
-Host1 was configured with a static IPv4 address.
+The host configuration was checked to make sure that the client was connected to the correct subnet.
 
-The configuration was checked using:
+![Host IP Configuration](./Images/Screenshot%202026-08-19%20133343.png)
 
-`ip addr`
+The routing/default gateway information was also checked.
 
-![Host1 IP Configuration](./Images/Screenshot%202026-08-19%20140147-task%202.png)
+![Host Routing Configuration](./Images/Screenshot%202026-08-19%20133358.png)
 
-The output confirmed that Host1 had been assigned an IPv4 address on the client network.
-
----
-
-## Step 7 – Configure Server1
-
-Server1 was configured on the server-side network.
-
-The IP configuration was checked using:
-
-`ip addr`
-
-![Server1 IP Configuration](./Images/Screenshot%202026-08-19%20144057%281%29.png)
-
-This server acts as the HTTP server for the practical.
+Correct default gateway configuration is necessary because the client and HTTP server are located on different subnets.
 
 ---
 
-## Step 8 – Use Firefox as the HTTP Client
+## Step 6 – Test Router Connectivity
 
-Host1 was used as the graphical HTTP client.
+A ping test was performed to verify connectivity between Router1 and Router2.
 
-The graphical environment was opened so that Firefox could be used to access the HTTP server.
+![Successful Router Ping](./Images/Screenshot%202026-08-19%20133610.png)
 
-![Firefox HTTP Client](./Images/Screenshot%202026-08-19%20144216%281%29.png)
+The successful result showed that packets could travel between the two routers.
 
-This demonstrated the use of a graphical web browser as an HTTP client.
+The test returned replies with no packet loss, confirming successful communication across subnet B.
+
+---
+
+## Step 7 – Additional Network Verification
+
+The network configuration was checked further before HTTP communication was attempted.
+
+![Network Configuration Verification](./Images/Screenshot%202026-08-19%20133702.png)
+
+This helped verify that the required interfaces and network settings were active.
+
+---
+
+## Step 8 – Troubleshoot Connectivity
+
+During the practical, a connectivity problem was encountered.
+
+A ping test returned a `Destination Host Unreachable` message.
+
+![Connectivity Troubleshooting](./Images/Screenshot%202026-08-19%20134503.png)
+
+This indicated that the destination could not initially be reached.
+
+The network configuration, IP addresses, gateways and routing information were checked as part of troubleshooting.
+
+---
+
+## Step 9 – Configure the HTTP Client
+
+The HTTP client configuration was checked before accessing the server.
+
+![HTTP Client Configuration](./Images/Screenshot%202026-08-19%20140147-task%202.png)
+
+This ensured that the client had an appropriate IPv4 configuration for the network.
+
+---
+
+## Step 10 – Configure the HTTP Server
+
+The Linux Server was configured on the server-side network.
+
+The server interface configuration was checked using the Linux networking commands.
+
+![Linux Server Configuration](./Images/Screenshot%202026-08-19%20144057.png)
+
+The Linux Server acts as the HTTP server in this practical.
+
+---
+
+## Step 11 – Verify the Network Before HTTP Testing
+
+The completed network configuration was checked before testing HTTP communication.
+
+![Network Before HTTP Testing](./Images/Screenshot%202026-08-19%20144119.png)
+
+This ensured that the required devices were running and connected.
+
+---
+
+## Step 12 – Use the Graphical HTTP Client
+
+The graphical environment for Host1 was opened so that the HTTP client could be accessed.
+
+![Graphical HTTP Client](./Images/Screenshot%202026-08-19%20144216.png)
+
+Firefox/noVNC provides the graphical interface required for the GUI HTTP-client part of the tutorial.
 
 ---
 
@@ -168,120 +175,144 @@ This demonstrated the use of a graphical web browser as an HTTP client.
 
 The aim of Task 2 was to use command-line HTTP clients such as `wget` and `curl` to access the web server.
 
----
-
-## Step 1 – Prepare the CLI Network
-
-The GUI HTTP client project was used as the basis for the command-line HTTP client task.
-
-The Firefox host was replaced by a Linux Host while keeping the same network structure.
-
-The network continued to use three subnets connected through Router1 and Router2.
-
-![CLI Network Topology](./Images/Screenshot%202026-08-19%20132704.png)
+Command-line HTTP clients are useful for testing and automation because they do not require a complete graphical web browser.
 
 ---
 
-## Step 2 – Check Linux Host Configuration
+## Step 1 – Prepare the CLI HTTP Client
 
-The Linux Host IP configuration was checked using:
+The GUI HTTP-client project was used as the basis for Task 2.
 
-`ip addr`
+The Firefox Host was replaced with a Linux Host, while the routed network structure was retained.
 
-![Linux Host IP Configuration](./Images/Screenshot%202026-08-19%20140147-task%202.png)
+The Linux Host was configured for communication with the HTTP server.
 
-This confirmed that the Linux Host was connected to the correct client network.
+![Linux Host Configuration](./Images/Screenshot%202026-08-19%20140147-task%202.png)
 
 ---
 
-## Step 3 – Check Router Configuration
+## Step 2 – Verify Router1
 
-The Router1 and Router2 interface configurations were checked before testing the HTTP connection.
+Router1 was checked to ensure that communication from the client-side network could be forwarded toward the server-side network.
 
-![Router Configuration 1](./Images/Screenshot%202026-08-19%20133246%281%29.png)
+![Router1 Configuration](./Images/Screenshot%202026-08-19%20132630.png)
 
-The second router configuration was also verified.
+The routing table was also checked.
 
-![Router Configuration 2](./Images/Screenshot%202026-08-19%20133358%281%29.png)
+![Router1 Routing Table](./Images/Screenshot%202026-08-19%20133149.png)
+
+---
+
+## Step 3 – Verify Router2
+
+Router2 was checked to ensure connectivity between subnet B and the server-side subnet.
+
+![Router2 Routing Table](./Images/Screenshot%202026-08-19%20133158.png)
+
+The Router2 interface configuration was also verified.
+
+![Router2 Interface Configuration](./Images/Screenshot%202026-08-19%20133246.png)
 
 ---
 
 ## Step 4 – Verify Connectivity
 
-Before accessing the HTTP server, connectivity between the network devices was tested.
+Before accessing the web server using command-line HTTP tools, connectivity was tested.
 
-![Ping Connectivity Test](./Images/Screenshot%202026-08-19%20133610%281%29.png)
+![Connectivity Test](./Images/Screenshot%202026-08-19%20133610.png)
 
-The successful ping result confirmed that the network was able to carry traffic between the configured devices.
+The successful ping confirmed that network communication was functioning between the tested devices.
 
 ---
 
-## Step 5 – Access the Server Using wget
+## Step 5 – Check the Linux Server
+
+The HTTP server configuration was verified before performing the HTTP-client tests.
+
+![HTTP Server Configuration](./Images/Screenshot%202026-08-19%20144057.png)
+
+---
+
+## Step 6 – Use wget
 
 The Linux Host was used as a command-line HTTP client.
 
-The `wget` command was used to request the web page from the HTTP server.
+The tutorial uses `wget` to request a webpage from the Linux Server.
 
-Example command:
+The general form of the command is:
 
 `wget http://<server-ip>/`
 
-`wget` downloads the requested webpage and saves it on the client.
+`wget` requests the webpage from the HTTP server and normally saves the received page as a local file.
 
-![wget Test](./Images/Screenshot%202026-08-19%20144119%281%29.png)
+The command-line practical environment is shown below.
+
+![Command Line HTTP Client](./Images/Screenshot%202026-08-19%20144119.png)
 
 ---
 
-## Step 6 – Access the Server Using curl
+## Step 7 – Use curl
 
-The `curl` command was also used to access the HTTP server.
+The Linux Host was also used with `curl` to access the HTTP server.
 
-Example command:
+The general form of the command is:
 
 `curl http://<server-ip>/`
 
-Unlike `wget`, `curl` can display the returned web content directly in the terminal.
+`curl` can request HTTP content and display the returned information directly in the terminal.
 
-![curl Test](./Images/Screenshot%202026-08-19%20144216%281%29.png)
+![HTTP Client Test](./Images/Screenshot%202026-08-19%20144216.png)
+
+---
+
+# Packet Capture
+
+The Week 04 tutorial also required packet capture on a link in subnet B between Router1 and Router2.
+
+The packet capture allows the HTTP traffic passing between the two routers to be examined and provides evidence of communication across the routed network.
+
+The packet capture files should be retained with the GNS3 project files as part of the practical evidence.
 
 ---
 
 # Observations
 
-During this tutorial, I learned how HTTP communication works across multiple routed networks.
+During this tutorial, I learned how HTTP communication operates across a network containing multiple subnets and routers.
 
-The practical demonstrated the importance of correct IP addressing and routing before application-layer communication can work.
+The practical demonstrated that correct IPv4 addressing, default gateways and routing are required before HTTP communication can work successfully.
 
-The `ip addr` command was useful for checking interface addresses, while `ip route` was used to inspect routing information.
+The `ip addr` command was useful for checking interface addressing, while `ip route` was used to inspect routing information.
 
-The `ping` command was useful for troubleshooting network connectivity. An unsuccessful test produced a `Destination Host Unreachable` message, while a successful test showed 0% packet loss.
+The `ping` command was useful for testing and troubleshooting network connectivity. During the practical, an unsuccessful test produced a `Destination Host Unreachable` result. After checking the network configuration, successful communication between the network devices was demonstrated.
 
-I also learned the difference between graphical and command-line HTTP clients. Firefox provides a graphical interface for accessing websites, while `wget` and `curl` allow HTTP requests to be performed directly from the command line.
+The tutorial also demonstrated two different ways of using an HTTP client.
 
-Command-line HTTP clients are particularly useful for testing and automation because they do not require a graphical browser.
+In Task 1, a graphical web browser was used as the HTTP client.
+
+In Task 2, command-line HTTP clients such as `wget` and `curl` were used.
+
+Command-line HTTP clients are useful for network testing and automation because HTTP requests can be performed without the overhead of a complete graphical web browser.
 
 ---
 
 # Conclusion
 
-The Week 04 tutorial provided practical experience with HTTP client-server communication in GNS3.
+The Week 04 tutorial provided practical experience configuring and testing HTTP client-server communication in GNS3.
 
-In Task 1, a graphical HTTP client was used to access the HTTP server across a network containing three subnets and two routers.
+The practical involved:
 
-In Task 2, command-line HTTP clients were used to access the server.
+- Creating a three-subnet network
+- Configuring Router1 and Router2
+- Assigning static IPv4 addresses
+- Configuring default gateways
+- Checking interface configuration
+- Viewing routing tables
+- Testing connectivity with `ping`
+- Troubleshooting network connectivity
+- Using a graphical HTTP client
+- Using command-line HTTP clients
+- Working with `wget`
+- Working with `curl`
+- Capturing network packets
 
-The practical helped develop understanding of:
-
-- Static IPv4 addressing
-- Router interface configuration
-- Routing tables
-- Default gateways
-- Connectivity testing
-- Network troubleshooting
-- HTTP client-server communication
-- GUI HTTP clients
-- Command-line HTTP clients
-- `wget`
-- `curl`
-
-Overall, the tutorial demonstrated how HTTP communication depends on correctly configured underlying network connectivity.
+Overall, the tutorial demonstrated that HTTP communication depends on correctly configured underlying IP connectivity and routing.
